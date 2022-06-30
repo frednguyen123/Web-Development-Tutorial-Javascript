@@ -484,12 +484,37 @@ function register(user){
     users.push(user)
 };
 
-register({
+register(
+    {
     username: 'brad', 
     email: 'brad@unlv.nevada.edu', 
     password: 'brad123', 
     subscriptionStatus: 'VIP', 
     discordId: 'brad#0002', 
     lessonsCompleted: [0, 1]
-})
+    }
+)
 console.log(users)
+
+// First way of accessing an element 
+// Access just like CSS
+console.log(document.querySelector('#title'))
+
+// Second way of accessing an element
+console.log(document.getElementById('title'))
+
+// Can change things dynamically, like HTML using innerHTML
+document.querySelector('#title').innerHTML = 'Nguyen Frederick'
+
+// Can change CSS
+document.querySelector('#title').style.fontSize = '30px'
+
+// Example function to change text to red
+// function changeTitleToRed(){
+//     console.log('clicked')
+//     document.querySelector('#title').style.color = 'red'
+// }
+
+function toggleDarkMode(){
+    document.querySelector('body').classList.toggle("dark-theme")
+}
