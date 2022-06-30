@@ -390,3 +390,106 @@ for (let i = 0; i < dollarsNoMap.length; i++){
 }
 console.log(centsNoMap)
 
+// OBJECTS
+
+let users = [
+    {
+        username: 'frederick',
+        email: 'fred@unlv.nevada.edu',
+        password: 'fred123',
+        subscriptionStatus: 'VIP',
+        discordId: 'Frederick#0000',
+        lessonsCompleted: [0, 1],
+    },
+    {
+        username: 'john',
+        email: 'john@unlv.nevada.edu',
+        password: 'john123',
+        subscriptionStatus: 'VIP',
+        discordId: 'John#0000',
+        lessonsCompleted: [0, 1, 2, 3],
+    },
+    {
+        username: 'ted',
+        email: 'ted@unlv.nevada.edu',
+        password: 'ted123',
+        subscriptionStatus: 'VIP',
+        discordId: 'ted#0000',
+        lessonsCompleted: [0, 1, 2, 3],
+    },
+];
+
+// SAMPLE TESTS
+// console.log(user.username[0])
+// console.log(user.subscriptionStatus)
+// console.log(user.lessonsCompleted.map(element => element * 2))
+// console.log(users[1].lessonsCompleted.map(elem => elem * 2))
+
+/**
+ * function takes in email and password
+ * loop goes through array of objects
+ * compares input with objects to verify details
+ */
+function login(email, password){
+    for (let i = 0; i < users.length; ++i){
+        if (users[i].email === email){
+            console.log(users[i])
+            if (users[i].password === password){
+                console.log('log the user in - the details are correct')
+            }
+            else{
+                console.log('password is incorrect - try again')
+            }
+            return
+        }
+    }
+    console.log('could not find an email that matches')
+}
+
+login('john@unlv.nevada.edu', 'john123')
+
+/**
+ * Create a register function that accepts:
+ * -username 
+ * -email 
+ * -password 
+ * -subscriptionStatus 
+ * -discordId 
+ * -lessonsCompleted 
+ * 
+ * Inside your register function:
+ * 1. Create a user object
+ * 2. Push this user object onto the 'users' array
+ */
+
+// ORIGINALLY CODED
+
+// function register(name, email, password, subscriptionStatus, discordId, lessonsCompleted){
+//     let userObject = {
+//         username: name,
+//         email: email,
+//         password: password, 
+//         subscriptionStatus: subscriptionStatus,
+//         discordId: discordId,
+//         lessonsCompleted: lessonsCompleted,
+//     }
+//     users.push(userObject)
+// };
+
+// register('brad', 'brad@unlv.nevada.edu', 'brad123', 'VIP', 'brad#000', [0, 1]);
+//console.log(users)
+
+// SHORTER BEST PRACTICE
+function register(user){
+    users.push(user)
+};
+
+register({
+    username: 'brad', 
+    email: 'brad@unlv.nevada.edu', 
+    password: 'brad123', 
+    subscriptionStatus: 'VIP', 
+    discordId: 'brad#0002', 
+    lessonsCompleted: [0, 1]
+})
+console.log(users)
